@@ -1,6 +1,6 @@
 {
   "name": "winston-notification-center",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Mac OS X Notification Center transport for winston",
   "keywords": [
     "logging",
