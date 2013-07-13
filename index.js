@@ -5,11 +5,10 @@ var winston = require('winston');
 
 var NotificationCenterTransport = function(opts) {
   if (opts === undefined) opts = {};
-  opts.debug = opts.debug || false;
 
-  this.name = opts.name || 'notification-center';
-  this.title = opts.title || this.name;
-  this.level = opts.level || 'info';
+  this.type = opts.type || 'pass';
+  this.title = opts.title || 'notification-center';
+  this.subtitle = opts.subtitle;
   this.group = opts.group;
   this.activate = opts.activate;
   this.open = opts.open;
@@ -17,14 +16,14 @@ var NotificationCenterTransport = function(opts) {
 };
 util.inherits(NotificationCenterTransport, winston.Transport);
 
-NotificationCenterTransport.prototype.log = function (level, message, callback) {
+NotificationCenterTransport.prototype.log = function (level, message, meta, callback) {
   /**
     @level {string} Level at which to log the message.
     @message {string} Message to log
     @callback {function} Continuation to respond to when complete. */
   var self = this;
 
-  var type = 'pass';
+  var type = this.type;
   if (level == 'critical' || level == 'error' || level == 'warn') {
     type = 'fail';
   }
@@ -33,13 +32,17 @@ NotificationCenterTransport.prototype.log = function (level, message, callback) 
   }
 
   var args = {type: type, message: message};
+  if (this.title) args.title = this.title;
+  if (this.subtitle) args.subtitle = this.subtitle;
   if (this.group) args.group = this.group;
   if (this.activate) args.activate = this.activate;
   if (this.open) args.open = this.open;
   if (this.execute) args.execute = this.execute;
 
   osx_notifier(args);
-  setImmediate(callback);
+  if (callback) {
+    setImmediate(callback);
+  }
 };
 
 winston.transports.NotificationCenterTransport = NotificationCenterTransport;
