@@ -1,0 +1,26 @@
+{
+  "name": "winston-notification-center",
+  "version": "0.1.0",
+  "description": "A Mac OS X Notification Center transport for winston",
+  "keywords": [
+    "logging",
+    "sysadmin",
+    "tools",
+    "winston",
+    "transport",
+    "osx",
+    "notification center"
+  ],
+  "homepage": "https://github.com/chbrown/winston-notification-center",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chbrown/winston-notification-center.git"
+  },
+  "author": "Christopher Brown <io@henrian.com> (http://henrian.com)",
+  "license": "MIT",
+  "bugs": "https://github.com/chbrown/winston-notification-center/issues",
+  "dependencies": {
+    "osx-notifier": "*",
+    "winston": "*"
+  },
+}
