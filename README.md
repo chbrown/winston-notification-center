@@ -1,6 +1,6 @@
 # winston-notification-center
 
-A Mac OS X Notification Center transport for [winston](https://github.com/indexzero/winston).
+A Mac OS X Notification Center transport for [winston](https://github.com/flatiron/winston).
 
 Uses [osx-notifier](https://github.com/chbrown/osx-notifier).
 
