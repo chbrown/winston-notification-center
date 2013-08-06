@@ -1,4 +1,4 @@
-'use strict'; /*jslint node: true, es5: true, indent: 2 */
+'use strict'; /*jslint es5: true, node: true, indent: 2 */ /* globals setImmediate */
 var util = require('util');
 var osx_notifier = require('osx-notifier');
 var winston = require('winston');
