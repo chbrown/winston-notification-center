@@ -45,5 +45,7 @@ NotificationCenterTransport.prototype.log = function (level, message, meta, call
   }
 };
 
+// export (monkeypatch) into winston's list of available transports
 winston.transports.NotificationCenterTransport = NotificationCenterTransport;
+// as well as directly from this package
 module.exports = NotificationCenterTransport;
